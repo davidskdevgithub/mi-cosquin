@@ -21,12 +21,12 @@
 
 ## Fase 2 — Interactividad Básica
 
-- [ ] `CurrentTimeIndicator`: línea vertical en la posición de hora actual (timezone Argentina)
-- [ ] Actualización automática cada minuto
-- [ ] Botón scroll-to-now (icono reloj) en el sidebar header
-- [ ] Toggle de favoritos con `localStorage`
-- [ ] Visual diferenciado para bandas favoritas usando token `--color-favorite`
-- [ ] Persistencia: favoritos sobreviven reload
+- [x] `CurrentTimeIndicator`: línea vertical en la posición de hora actual (timezone Argentina)
+- [x] Actualización automática cada minuto
+- [x] Botón scroll-to-now (icono reloj) en el sidebar header
+- [x] Toggle de favoritos con `localStorage`
+- [x] Visual diferenciado para bandas favoritas usando token `--color-favorite`
+- [x] Persistencia: favoritos sobreviven reload
 
 **Testeo:** la línea se posiciona correctamente, el botón centra la vista, los favoritos persisten al recargar.
 
