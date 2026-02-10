@@ -74,7 +74,7 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
               <EventsGrid key={`grid-${scenario.id}`} columns={TOTAL_COLUMNS}>
                 {scenarioEvents.map((event: Event, index: number) => (
                   <EventSlotCell
-                    key={`${scenario.id}-${event.banda}`}
+                    key={`${scenario.id}-${event.start}`}
                     event={event}
                     nextEvent={scenarioEvents[index + 1]}
                     scenarioId={scenario.id}

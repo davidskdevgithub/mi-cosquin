@@ -34,11 +34,11 @@
 
 ## Fase 3 — Data Completa + Tabs de Días
 
-- [ ] JSON completo: todos los escenarios (7), todas las bandas, Día 1 y Día 2
-- [ ] Extender `lineup.config.ts`: jornada 12:00 PM → 05:00 AM (medianoche no corta)
-- [ ] Tabs para cambiar de día (usando componentes del DS)
-- [ ] Escenarios sin eventos en un día se ocultan automáticamente
-- [ ] TIME_SLOTS dinámico según rango real de la jornada
+- [x] JSON completo: todos los escenarios (7), todas las bandas, Día 1 y Día 2
+- [x] Extender `lineup.config.ts`: jornada 14:00 → 04:00 AM (medianoche no corta)
+- [x] Tabs para cambiar de día (`DayTabs` + `LineupPage`)
+- [x] Escenarios sin eventos en un día se ocultan automáticamente
+- [x] TIME_SLOTS dinámico según rango real de la jornada (`generateTimeSlots`)
 
 **Testeo:** ambos días funcionan, grilla se adapta, todos los escenarios y bandas visibles.
 

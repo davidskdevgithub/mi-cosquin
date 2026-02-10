@@ -1,4 +1,4 @@
-import { EVENTS_DAY_1, LineupContainer } from "@/features/lineup";
+import { LineupPage } from "@/features/lineup";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       </header>
 
       <main className="p-2">
-        <LineupContainer events={EVENTS_DAY_1} />
+        <LineupPage />
       </main>
     </div>
   );

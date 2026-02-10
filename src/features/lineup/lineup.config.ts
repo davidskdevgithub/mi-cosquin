@@ -1,8 +1,8 @@
 /** Inicio de jornada en minutos (14:00) */
 export const START_TIME = 14 * 60;
 
-/** Fin de jornada en minutos (19:00 para Fase 1, luego se extiende a 04:00+) */
-export const END_TIME = 19 * 60;
+/** Fin de jornada en minutos (04:00 del día siguiente) */
+export const END_TIME = (24 + 4) * 60;
 
 /** Minutos totales de la jornada */
 export const TOTAL_MINUTES = END_TIME - START_TIME;

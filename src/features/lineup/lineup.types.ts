@@ -1,3 +1,5 @@
+export type DayId = "day1" | "day2";
+
 export type ScenarioId =
   | "sur"
   | "norte"
@@ -5,7 +7,9 @@ export type ScenarioId =
   | "montana"
   | "paraguay"
   | "hangarclub"
-  | "casitablues";
+  | "casitablues"
+  | "laplaza"
+  | "sorpresa";
 
 /**
  * Mapeo ScenarioId → clase Tailwind de color del stage.
@@ -19,6 +23,8 @@ export const STAGE_COLOR: Record<ScenarioId, string> = {
   paraguay: "bg-stage-paraguay",
   hangarclub: "bg-stage-hangarclub",
   casitablues: "bg-stage-casitablues",
+  laplaza: "bg-stage-laplaza",
+  sorpresa: "bg-stage-sorpresa",
 };
 
 export interface Scenario {
