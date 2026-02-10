@@ -18,6 +18,18 @@
   --color-danger: #dc2626;
   --color-info: #0891b2;
 
+  /* ── Stage Identity ──────────────────────────────────────── */
+  --color-stage-sur: #5b6abf;
+  --color-stage-norte: #d4793a;
+  --color-stage-boomerang: #c94277;
+  --color-stage-montana: #2d8a5e;
+  --color-stage-paraguay: #8b5dc8;
+  --color-stage-hangarclub: #d45a6e;
+  --color-stage-casitablues: #4a6fa5;
+
+  /* ── User State ─────────────────────────────────────────── */
+  --color-favorite: #e8b931;
+
   --color-neutral-50: #faf9f7;
   --color-neutral-100: #f3f1ed;
   --color-neutral-200: #e7e3dc;
