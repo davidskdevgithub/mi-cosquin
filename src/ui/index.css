@@ -1,0 +1,78 @@
+/**
+ * This file defines the global styles for the application,
+ * including theme variables and Tailwind CSS integration.
+ * The styles are applied globally to ensure a
+ * cohesive look and feel across all components.
+ *
+ * The project has @import "tailwindcss"; in globals.css,
+ * so we should use only @theme here to avoid conflicts.
+ */
+
+@theme inline {
+  /* ── Colors ─────────────────────────────────────────────── */
+  --color-primary: #3eaca8;
+  --color-secondary: #c85d44;
+  --color-accent: #e6b89c;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0891b2;
+
+  --color-neutral-50: #faf9f7;
+  --color-neutral-100: #f3f1ed;
+  --color-neutral-200: #e7e3dc;
+  --color-neutral-300: #d4cfc4;
+  --color-neutral-400: #a69f94;
+  --color-neutral-500: #75706a;
+  --color-neutral-600: #544f49;
+  --color-neutral-700: #3d3935;
+  --color-neutral-800: #2a2623;
+  --color-neutral-900: #1a1816;
+
+  /* ── Border Radius ──────────────────────────────────────── */
+  --radius-none: 0;
+  --radius-sm: 10px;
+  --radius-base: 14px;
+  --radius-md: 18px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-2xl: 40px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ────────────────────────────────────────────── */
+  --shadow-sm:
+    4px 4px 8px rgba(0, 0, 0, 0.1), -2px -2px 6px rgba(255, 255, 255, 0.7);
+  --shadow-base:
+    6px 6px 12px rgba(0, 0, 0, 0.12), -3px -3px 8px rgba(255, 255, 255, 0.7);
+  --shadow-md:
+    8px 8px 16px rgba(0, 0, 0, 0.15), -4px -4px 10px rgba(255, 255, 255, 0.7);
+  --shadow-lg:
+    12px 12px 24px rgba(0, 0, 0, 0.18), -6px -6px 14px rgba(255, 255, 255, 0.7);
+  --shadow-xl:
+    16px 16px 32px rgba(0, 0, 0, 0.2), -8px -8px 18px rgba(255, 255, 255, 0.7);
+
+  /* ── Font Weights ───────────────────────────────────────── */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ── Spacing (version-scaled) ───────────────────────────── */
+  --spacing-ds-0: 0;
+  --spacing-ds-1: 0.3rem;
+  --spacing-ds-2: 0.6rem;
+  --spacing-ds-3: 0.9rem;
+  --spacing-ds-4: 1.2rem;
+  --spacing-ds-5: 1.5rem;
+  --spacing-ds-6: 1.8rem;
+  --spacing-ds-8: 2.4rem;
+  --spacing-ds-10: 3rem;
+  --spacing-ds-12: 3.6rem;
+  --spacing-ds-16: 4.8rem;
+  --spacing-ds-20: 6rem;
+  --spacing-ds-24: 7.2rem;
+
+  /* ── Borders (version-scaled) ───────────────────────────── */
+  --border-ds-width: 1px;
+  --border-ds-style: solid;
+}
