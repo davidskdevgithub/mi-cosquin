@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# convex
+# Nota: convex/ (sin punto) contiene tu código y DEBE commitearse
+# .convex/ (con punto) es caché local y NO debe commitearse
+.convex

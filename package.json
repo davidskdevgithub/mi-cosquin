@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "convex:dev": "pnpm dlx convex dev",
+    "convex:deploy": "pnpm dlx convex deploy"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "convex": "^1.31.7",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "react": "19.2.3",
