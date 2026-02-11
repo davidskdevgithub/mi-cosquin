@@ -59,13 +59,16 @@
 
 ## Fase 5 — Convex: Identidad + Sync de Favoritos
 
-- [ ] Feature `src/features/auth/`
-- [ ] Modelo en Convex: tabla `users` (username, device token)
-- [ ] Modelo en Convex: tabla `favorites` (userId, banda, scenarioId, day)
-- [ ] Uso anónimo inicial (solo `localStorage`)
-- [ ] Registro opcional: solo username + token único del dispositivo
-- [ ] Sync bidireccional: `localStorage` ↔ Convex al conectar cuenta
-- [ ] Indicador de estado de conexión en el UI
+- [x] Feature `src/features/auth/` (vertical slice)
+- [x] Convex schema: `convex/schema.ts` con tablas `users` y `favorites`
+- [x] Modelo `users`: username + deviceToken (index `by_device_token`)
+- [x] Modelo `favorites`: userId + banda (indexes `by_user`, `by_user_banda`)
+- [x] Uso anónimo inicial (solo `localStorage`) — sin cambios en UX existente
+- [x] Registro opcional: input username + deviceToken auto (UUID)
+- [x] Sync: al registrar, localStorage se sube a Convex; luego local es fuente de verdad y Convex se mantiene en sync
+- [x] `UserBadge` y `RegisterForm` en el header
+- [x] `useFavorites` acepta `userId` opcional — dual mode (local/Convex)
+- [x] Indicador de conexión: `OfflineBadge` ya existente (Fase 4)
 
 **Testeo:** crear usuario, marcar favoritos, recargar, verificar sync.
 
@@ -74,6 +77,7 @@
 ## Fase 6 — Convex: Salas de Amigos
 
 - [ ] Feature `src/features/rooms/`
+- [ ] Modelo dual: favoritos personales local-first; salas/heatmap Convex-first (fuente compartida)
 - [ ] Modelo en Convex: tablas `rooms`, `room_members`
 - [ ] Crear sala con código único
 - [ ] Unirse a sala por código o QR

@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Favoritos: local-first + sync
+
+- Los favoritos personales son local-first: la UI siempre usa `localStorage`.
+- Convex se mantiene en sync cuando hay conexion.
+- Para salas (Fase 6), la fuente compartida es Convex. Usa el estado local para la UX del usuario.
+
+Helpers:
+
+- `useFavoritesSyncStatus(userId)` expone `isSyncing` y `pendingCount` para indicadores o salas.
+
 ## Getting Started
 
 First, run the development server:

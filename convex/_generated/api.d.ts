@@ -9,6 +9,8 @@
  */
 
 import type * as example from "../example.js";
+import type * as favorites from "../favorites.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +20,8 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   example: typeof example;
+  favorites: typeof favorites;
+  users: typeof users;
 }>;
 
 /**

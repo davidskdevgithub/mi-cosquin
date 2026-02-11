@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useRef, useCallback } from "react";
-import { TOTAL_COLUMNS, START_TIME, TOTAL_MINUTES } from "../lineup.config";
+import type { Id } from "@convex/_generated/dataModel";
+import { useCallback, useMemo, useRef } from "react";
+import { START_TIME, TOTAL_COLUMNS, TOTAL_MINUTES } from "../lineup.config";
 import { SCENARIOS, TIME_SLOTS } from "../lineup.data";
-import { timeToMinutes, getCurrentArgentinaTime } from "../lineup.helpers";
+import { getCurrentArgentinaTime, timeToMinutes } from "../lineup.helpers";
 import { useFavorites } from "../lineup.hooks";
 import type { Event, EventsType } from "../lineup.types";
 import { CurrentTimeIndicator } from "./current-time-indicator";
@@ -14,10 +15,11 @@ import { TimeSlotCell } from "./time-slot-cell";
 
 interface LineupContainerProps {
   events: EventsType;
+  userId?: Id<"users"> | null;
 }
 
-export const LineupContainer = ({ events }: LineupContainerProps) => {
-  const { isFavorite, toggleFavorite } = useFavorites();
+export const LineupContainer = ({ events, userId }: LineupContainerProps) => {
+  const { isFavorite, toggleFavorite } = useFavorites(userId);
 
   const activeScenarios = useMemo(
     () =>
