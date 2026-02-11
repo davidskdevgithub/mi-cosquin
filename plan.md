@@ -46,11 +46,12 @@
 
 ## Fase 4 — PWA + Offline-first
 
-- [ ] Configurar Next.js como PWA (manifest.json, service worker)
-- [ ] JSON de lineup embebido en el bundle (sin fetch externo)
-- [ ] Detección de estado de conexión (`navigator.onLine`)
-- [ ] Modo Ahorro: flag que limita sync con Convex cuando hay mala señal
-- [ ] Iconos y splash screen para instalación
+- [x] Configurar Next.js como PWA (manifest.json, service worker)
+- [x] JSON de lineup embebido en el bundle (sin fetch externo)
+- [x] Detección de estado de conexión (`useOnlineStatus` + `useSyncExternalStore`)
+- [x] Badge offline en el header (solo visible sin conexión)
+- [x] Iconos placeholder para instalación (192px + 512px)
+- [ ] Modo Ahorro: flag que limita sync con Convex cuando hay mala señal (diferido a Fase 5)
 
 **Testeo:** instalar la app en dispositivo, activar modo avión, todo sigue funcionando.
 
