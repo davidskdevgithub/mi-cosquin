@@ -2,10 +2,14 @@
 
 import { Text } from "@/ui";
 import { cn } from "@/ui/utils/cn";
-import { COLUMN_DURATION, START_TIME, TOTAL_COLUMNS } from "../lineup.config";
+import {
+  COLUMN_DURATION,
+  STAGE_COLOR,
+  START_TIME,
+  TOTAL_COLUMNS,
+} from "../lineup.config";
 import { timeToMinutes } from "../lineup.helpers";
 import type { Event, ScenarioId } from "../lineup.types";
-import { STAGE_COLOR } from "../lineup.types";
 
 interface EventSlotCellProps {
   event: Event;

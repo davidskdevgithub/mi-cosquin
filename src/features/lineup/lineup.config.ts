@@ -1,3 +1,21 @@
+/**
+ * Mapeo ScenarioId → clase Tailwind de color del stage.
+ * Cada escenario tiene su token --color-stage-<id> definido en ui/index.css.
+ */
+import type { ScenarioId } from "./lineup.types";
+
+export const STAGE_COLOR: Record<ScenarioId, string> = {
+  sur: "bg-stage-sur",
+  norte: "bg-stage-norte",
+  boomerang: "bg-stage-boomerang",
+  montana: "bg-stage-montana",
+  paraguay: "bg-stage-paraguay",
+  hangarclub: "bg-stage-hangarclub",
+  casitablues: "bg-stage-casitablues",
+  laplaza: "bg-stage-laplaza",
+  sorpresa: "bg-stage-sorpresa",
+};
+
 /** Inicio de jornada en minutos (14:00) */
 export const START_TIME = 14 * 60;
 
