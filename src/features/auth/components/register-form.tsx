@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/ui";
+import { Button, Input } from "@/ui";
 
 interface RegisterFormProps {
   onRegister: (username: string) => void;
@@ -23,14 +23,13 @@ export const RegisterForm = ({
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center gap-2">
-      <input
+      <Input
         type="text"
+        size="sm"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Tu nombre..."
-        minLength={2}
         maxLength={20}
-        className="px-3 py-1.5 text-sm bg-neutral-800 border border-neutral-600 rounded-md text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:border-primary w-36"
       />
       <Button
         size="sm"
