@@ -77,15 +77,20 @@ export const useIdentity = () => {
   const register = useCallback(
     async (username: string, localFavorites: string[]) => {
       if (!deviceToken) return;
-      const userId = await registerMutation({
-        username,
-        deviceToken,
-        localFavorites,
-      });
-      localStorage.setItem(USER_ID_KEY, userId);
-      const newIdentity: UserIdentity = { userId, username, deviceToken };
-      writeCachedIdentity(newIdentity);
-      setCachedIdentity(newIdentity);
+      try {
+        const userId = await registerMutation({
+          username,
+          deviceToken,
+          localFavorites,
+        });
+        localStorage.setItem(USER_ID_KEY, userId);
+        const newIdentity: UserIdentity = { userId, username, deviceToken };
+        writeCachedIdentity(newIdentity);
+        setCachedIdentity(newIdentity);
+      } catch (err) {
+        console.error("[Auth] Registration failed:", err);
+        throw err;
+      }
     },
     [deviceToken, registerMutation],
   );

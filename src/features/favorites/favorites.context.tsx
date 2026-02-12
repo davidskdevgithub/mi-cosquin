@@ -81,9 +81,17 @@ export const FavoritesProvider = ({
 
     // Subir diferencias a Convex
     isMergingRef.current = true;
-    for (const banda of [...localAdds, ...localRemoves]) {
-      toggleMutation({ userId, banda });
-    }
+
+    const mutations = [...localAdds, ...localRemoves].map((banda) =>
+      toggleMutation({ userId, banda }).catch((err) => {
+        console.warn("[Favorites] Error syncing banda:", banda, err);
+      }),
+    );
+
+    Promise.all(mutations).catch(() => {
+      // Si todo falla, resetear para reintentar en el próximo ciclo
+      isMergingRef.current = false;
+    });
   }, [userId, convexFavorites, isOnline, favorites, toggleMutation]);
 
   // --- Resetear merge flag cuando Convex confirma sync ---
@@ -125,9 +133,11 @@ export const FavoritesProvider = ({
         return next;
       });
 
-      // Enviar a Convex si hay usuario (falla silenciosamente offline)
+      // Enviar a Convex si hay usuario
       if (userId) {
-        toggleMutation({ userId, banda });
+        toggleMutation({ userId, banda }).catch((err) => {
+          console.warn("[Favorites] Toggle failed for:", banda, err);
+        });
       }
     },
     [userId, toggleMutation],
