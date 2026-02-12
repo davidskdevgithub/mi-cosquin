@@ -1,6 +1,7 @@
 "use client";
 
 import { Text } from "@/ui";
+import { cn } from "@/ui/utils/cn";
 import { COLUMN_DURATION, START_TIME, TOTAL_COLUMNS } from "../lineup.config";
 import { timeToMinutes } from "../lineup.helpers";
 import type { Event, ScenarioId } from "../lineup.types";
@@ -52,19 +53,25 @@ export const EventSlotCell = ({
       onClick={() => onToggleFavorite(event.banda)}
     >
       <div
-        className={`flex flex-col gap-0.5 rounded-base p-2 h-full text-white transition-colors ${
-          isFavorite ? "bg-favorite" : stageColor
-        }`}
+        className={cn(
+          "flex flex-col gap-0.5 rounded-base p-2 h-full text-white transition-colors",
+          isFavorite ? "bg-favorite" : stageColor,
+        )}
       >
         <Text variant="label" as="span">
           <span
-            className={`font-bold truncate ${isFavorite ? "text-neutral-900" : "text-white"}`}
+            className={cn(
+              "font-bold truncate",
+              isFavorite ? "text-neutral-900" : "text-white",
+            )}
           >
             {isFavorite ? `★ ${event.banda}` : event.banda}
           </span>
         </Text>
         <Text variant="caption" as="span">
-          <span className={isFavorite ? "text-neutral-700" : "text-white/70"}>
+          <span
+            className={cn(isFavorite ? "text-neutral-700" : "text-white/70")}
+          >
             {event.start}
           </span>
         </Text>
