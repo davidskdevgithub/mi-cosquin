@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/ui";
 import { useOnlineStatus } from "../pwa.hooks";
 
 export const OfflineBadge = () => {
@@ -8,9 +9,9 @@ export const OfflineBadge = () => {
   if (isOnline) return null;
 
   return (
-    <div className="flex items-center gap-1.5 px-2 py-1 bg-favorite/90 text-neutral-900 text-xs font-semibold rounded-md">
-      <span className="inline-block w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
+    <Badge variant="warning" size="sm">
+      <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
       Offline
-    </div>
+    </Badge>
   );
 };
