@@ -5,5 +5,6 @@ export * from "./checkbox";
 export * from "./input";
 export * from "./layout";
 export * from "./select";
+export * from "./sheet";
 export * from "./switch";
 export * from "./text";

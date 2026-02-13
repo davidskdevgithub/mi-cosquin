@@ -91,7 +91,26 @@
 
 ---
 
-## Fase 7 — Admin Portal
+## Fase 7 — UI/UX: Bottom Sheets + Mejoras Grilla
+
+- [x] Componente `Sheet` (Bottom Sheet) en `src/ui/`
+  - [x] Mobile: slide up desde bottom
+  - [x] Animaciones fluidas (open/close)
+  - [x] Backdrop con click para cerrar
+  - [x] Pull handle visual
+- [ ] Mejoras visuales en la grilla
+  - [ ] Ajustar tokens de colores de escenarios
+  - [ ] Ajustar heights de celdas para mejor touch target
+- [x] Header con menú de configuración
+- [x] Migrar flujos a Sheets
+  - [x] Auth: registro de usuario en Sheet
+  - [x] Rooms: panel de salas en Sheet
+
+**Testeo:** todos los flujos de auth y rooms funcionan en sheets, grilla se ve mejor en mobile.
+
+---
+
+## Fase 8 — Admin Portal
 
 - [ ] Feature `src/features/admin/`
 - [ ] Ruta oculta `/admin-portal` protegida
@@ -104,7 +123,7 @@
 
 ---
 
-## Fase 8 — Polish & UX
+## Fase 9 — Polish & UX
 
 - [ ] Mobile-first responsive (la grilla se usa en el festival, desde el celular)
 - [ ] Animaciones y transiciones (scroll, toggle favoritos, cambio de tab)

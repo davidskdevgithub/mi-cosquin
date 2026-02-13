@@ -16,6 +16,7 @@ export const Text = ({
   variant = "body",
   as,
   children,
+  className,
   ...props
 }: TextProps) => {
   const v = variant ?? "body";
@@ -24,7 +25,7 @@ export const Text = ({
   return React.createElement(
     Component,
     {
-      className: cn(textStyles({ variant: v })),
+      className: cn(textStyles({ variant: v }), className),
       ...props,
     },
     children,

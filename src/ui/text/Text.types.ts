@@ -9,6 +9,7 @@ type AsProp = "h1" | "h2" | "h3" | "h4" | "p" | "span" | "label";
 export interface TextProps extends CvaProps {
   children: React.ReactNode;
   as?: AsProp;
+  className?: string;
 
   /* Accessibility & Identification */
   id?: string;
