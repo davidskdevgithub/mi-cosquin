@@ -10,6 +10,7 @@
 
 import type * as example from "../example.js";
 import type * as favorites from "../favorites.js";
+import type * as rooms from "../rooms.js";
 import type * as users from "../users.js";
 
 import type {
@@ -21,6 +22,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   example: typeof example;
   favorites: typeof favorites;
+  rooms: typeof rooms;
   users: typeof users;
 }>;
 

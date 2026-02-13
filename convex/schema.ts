@@ -13,4 +13,20 @@ export default defineSchema({
   })
     .index("by_user", ["userId"])
     .index("by_user_banda", ["userId", "banda"]),
+
+  rooms: defineTable({
+    code: v.string(),
+    name: v.string(),
+    createdBy: v.id("users"),
+    createdAt: v.number(),
+  }).index("by_code", ["code"]),
+
+  room_members: defineTable({
+    roomId: v.id("rooms"),
+    userId: v.id("users"),
+    joinedAt: v.number(),
+  })
+    .index("by_room", ["roomId"])
+    .index("by_user", ["userId"])
+    .index("by_room_user", ["roomId", "userId"]),
 });
