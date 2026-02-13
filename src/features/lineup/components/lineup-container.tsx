@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useRef } from "react";
 import { useFavorites } from "@/features/favorites";
+import { useActiveRoom } from "@/features/rooms/active-room.context";
 import { START_TIME, TOTAL_COLUMNS, TOTAL_MINUTES } from "../lineup.config";
 import { SCENARIOS, TIME_SLOTS } from "../lineup.data";
 import { getCurrentArgentinaTime, timeToMinutes } from "../lineup.helpers";
@@ -18,6 +19,7 @@ interface LineupContainerProps {
 
 export const LineupContainer = ({ events }: LineupContainerProps) => {
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { getMemberFavorites } = useActiveRoom();
 
   const activeScenarios = useMemo(
     () =>
@@ -80,6 +82,7 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
                     scenarioId={scenario.id}
                     isFavorite={isFavorite(event.banda)}
                     onToggleFavorite={toggleFavorite}
+                    memberFavorites={getMemberFavorites(event.banda)}
                   />
                 ))}
               </EventsGrid>

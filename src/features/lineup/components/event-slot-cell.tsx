@@ -1,5 +1,6 @@
 "use client";
 
+import type { MemberBadge } from "@/features/rooms/active-room.context";
 import { Text } from "@/ui";
 import { cn } from "@/ui/utils/cn";
 import {
@@ -17,6 +18,8 @@ interface EventSlotCellProps {
   scenarioId: ScenarioId;
   isFavorite: boolean;
   onToggleFavorite: (banda: string) => void;
+  /** Miembros de la sala activa que tienen esta banda como favorita */
+  memberFavorites?: MemberBadge[];
 }
 
 export const EventSlotCell = ({
@@ -25,6 +28,7 @@ export const EventSlotCell = ({
   scenarioId,
   isFavorite,
   onToggleFavorite,
+  memberFavorites = [],
 }: EventSlotCellProps) => {
   const stageColor = STAGE_COLOR[scenarioId];
   const startMinutes = timeToMinutes(event.start) - START_TIME;
@@ -74,9 +78,28 @@ export const EventSlotCell = ({
         </Text>
         <Text variant="caption" as="span">
           <span
-            className={cn(isFavorite ? "text-neutral-700" : "text-white/70")}
+            className={cn(
+              "flex items-center justify-between",
+              isFavorite ? "text-neutral-700" : "text-white/70",
+            )}
           >
-            {event.start}
+            <span>{event.start}</span>
+            {memberFavorites.length > 0 && (
+              <span className="flex items-center gap-0.5 ml-1">
+                {memberFavorites.map((member) => (
+                  <span
+                    key={member.username}
+                    className={cn(
+                      "inline-flex items-center justify-center w-4 h-4 rounded-full text-[9px] font-bold leading-none",
+                      member.color,
+                    )}
+                    title={member.username}
+                  >
+                    {member.initial}
+                  </span>
+                ))}
+              </span>
+            )}
           </span>
         </Text>
       </div>

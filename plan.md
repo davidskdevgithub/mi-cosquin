@@ -76,14 +76,16 @@
 
 ## Fase 6 — Convex: Salas de Amigos
 
-- [ ] Feature `src/features/rooms/`
-- [ ] Modelo dual: favoritos personales local-first; salas/heatmap Convex-first (fuente compartida)
-- [ ] Modelo en Convex: tablas `rooms`, `room_members`
-- [ ] Crear sala con código único
-- [ ] Unirse a sala por código o QR
-- [ ] Generación de QR con el ID de sala (cara a cara, sin internet inmediato)
-- [ ] "Mapa de calor": visualizar coincidencias de favoritos entre miembros
-- [ ] Actualización en tiempo real vía subscriptions de Convex
+- [x] Feature `src/features/rooms/`
+- [x] Modelo dual: favoritos personales local-first; salas/heatmap Convex-first (fuente compartida)
+- [x] Modelo en Convex: tablas `rooms`, `room_members`
+- [x] Crear sala con código único
+- [x] Unirse a sala por código o QR
+- [x] Generación de QR con el ID de sala (cara a cara, sin internet inmediato)
+- [x] "Mapa de calor": visualizar coincidencias de favoritos entre miembros
+- [x] Actualización en tiempo real vía subscriptions de Convex
+- [x] Cache offline: datos de salas y heatmap persistidos en localStorage (TTL 30min)
+- [x] Fallback offline: sin conexión se usan datos cacheados de salas y heatmap
 
 **Testeo:** dos usuarios en la misma sala ven las coincidencias de favoritos.
 
