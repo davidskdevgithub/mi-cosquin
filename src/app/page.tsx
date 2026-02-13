@@ -10,7 +10,7 @@ import {
   useFavorites,
 } from "@/features/favorites";
 import { LineupPage } from "@/features/lineup";
-import { OfflineBadge, useOnlineStatus } from "@/features/pwa";
+import { OfflineBadge } from "@/features/pwa";
 import {
   ActiveRoomProvider,
   RoomsPanel,
@@ -19,14 +19,11 @@ import {
 import { Badge } from "@/ui";
 
 interface HeaderProps {
-  showRooms: boolean;
-  onToggleRooms: () => void;
   joinCode?: string;
 }
 
-function Header({ showRooms, onToggleRooms, joinCode }: HeaderProps) {
+function Header({ joinCode }: HeaderProps) {
   const { identity, register } = useIdentity();
-  const isOnline = useOnlineStatus();
   const { isSyncing, pendingCount } = useFavorites();
   const [isRegistering, setIsRegistering] = useState(false);
 
@@ -167,11 +164,7 @@ export default function Home() {
         onClearActiveRoom={handleClearActiveRoom}
       >
         <div className="min-h-screen bg-neutral-900 text-neutral-100">
-          <Header
-            showRooms={showRooms}
-            onToggleRooms={() => setShowRooms((prev) => !prev)}
-            joinCode={joinCode}
-          />
+          <Header joinCode={joinCode} />
           <main className="p-2 flex flex-col gap-2">
             {/* Panel de salas colapsable */}
             {showRooms && identity && (

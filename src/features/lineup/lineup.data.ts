@@ -10,7 +10,7 @@ export const SCENARIOS: Scenario[] = [
   { id: "sur", name: "Sur", logo: "" },
   { id: "norte", name: "Norte", logo: "" },
   { id: "montana", name: "Montaña", logo: "" },
-  { id: "boomerang", name: "Boomerang", logo: "" },
+  { id: "boomerang", name: "Boom erang", logo: "" },
   { id: "paraguay", name: "Paraguay", logo: "" },
   { id: "casitablues", name: "La Casita del Blues", logo: "" },
   { id: "laplaza", name: "La Plaza Electronic", logo: "" },

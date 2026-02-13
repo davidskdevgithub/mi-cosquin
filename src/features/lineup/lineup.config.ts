@@ -32,4 +32,4 @@ export const COLUMN_DURATION = 10;
 export const TOTAL_COLUMNS = TOTAL_MINUTES / COLUMN_DURATION;
 
 /** Altura de cada fila de escenario */
-export const ROW_HEIGHT = "h-20";
+export const ROW_HEIGHT = "h-18";

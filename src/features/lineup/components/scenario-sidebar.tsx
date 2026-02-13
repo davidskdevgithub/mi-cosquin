@@ -12,7 +12,7 @@ export const ScenarioSidebar = ({
   onTimeClick,
 }: ScenarioSidebarProps) => {
   return (
-    <div className="flex-none w-28 border-r-2 border-primary/40">
+    <div className="flex-none w-24 border-r-2 border-primary/40">
       {/* Header con botón scroll-to-now */}
       <button
         type="button"
@@ -40,10 +40,14 @@ export const ScenarioSidebar = ({
       {scenarios.map((scenario) => (
         <div
           key={scenario.id}
-          className={`${ROW_HEIGHT} flex items-center gap-2 px-3 bg-neutral-800 border-b border-neutral-700`}
+          className={`${ROW_HEIGHT} flex items-center justify-center gap-2 bg-neutral-800 border-b border-neutral-700`}
         >
           <Text variant="label" as="span">
-            <span className="text-neutral-100">{scenario.name}</span>
+            <span
+              className={`flex text-neutral-100 uppercase text-center ${scenario.id === "laplaza" ? "text-xs" : "text-sm"}`}
+            >
+              {scenario.name}
+            </span>
           </Text>
         </div>
       ))}
