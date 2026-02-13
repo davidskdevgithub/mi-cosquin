@@ -32,6 +32,14 @@
   /* ── User State ─────────────────────────────────────────── */
   --color-favorite: #e8b931;
 
+  /* ── Room Member Colors ─────────────────────────────────── */
+  --color-member-1: #e06c75;
+  --color-member-2: #61afef;
+  --color-member-3: #c678dd;
+  --color-member-4: #e5c07b;
+  --color-member-5: #56b6c2;
+  --color-member-6: #98c379;
+
   --color-neutral-50: #faf9f7;
   --color-neutral-100: #f3f1ed;
   --color-neutral-200: #e7e3dc;
