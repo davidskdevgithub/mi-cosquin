@@ -19,8 +19,8 @@ export const STAGE_COLOR: Record<ScenarioId, string> = {
 /** Inicio de jornada en minutos (14:00) */
 export const START_TIME = 14 * 60;
 
-/** Fin de jornada en minutos (04:00 del día siguiente) */
-export const END_TIME = (24 + 4) * 60;
+/** Fin de jornada en minutos (03:00 del día siguiente) */
+export const END_TIME = (24 + 3) * 60;
 
 /** Minutos totales de la jornada */
 export const TOTAL_MINUTES = END_TIME - START_TIME;
