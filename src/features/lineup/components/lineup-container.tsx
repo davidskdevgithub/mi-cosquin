@@ -16,6 +16,7 @@ import { EventsGrid } from "./events-grid";
 import { LineupDisclaimers } from "./lineup-disclaimers";
 import { ScenarioSidebar } from "./scenario-sidebar";
 import { TimeSlotCell } from "./time-slot-cell";
+import { LineUpFooter } from "./lineup-footer";
 
 interface LineupContainerProps {
   events: EventsType;
@@ -131,6 +132,7 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
         {/* Columna fija de escenarios */}
         <ScenarioSidebar
           scenarios={activeScenarios}
+          hasFilters={enabledScenarios.size < SCENARIOS.length}
           onFilterClick={() => setShowFilter(true)}
         />
 
@@ -177,6 +179,8 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
       </div>
 
       <LineupDisclaimers />
+
+      <LineUpFooter />
 
       {/* Sheet de filtros */}
       <Sheet
