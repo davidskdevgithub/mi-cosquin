@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { ServiceWorkerRegistrar } from "@/features/pwa";
 import { ConvexClientProvider } from "@/providers/ConvexClientProvider";
@@ -30,6 +31,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <Script
+          src="https://plausible.io/js/pa-dRNpv6v9twfWfz0lTXHlN.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`
+            window.plausible = window.plausible || function() {
+              (window.plausible.q = window.plausible.q || []).push(arguments)
+            }
+          `}
+        </Script>
+      </head>
       <body>
         <ServiceWorkerRegistrar />
         <ConvexClientProvider>{children}</ConvexClientProvider>
