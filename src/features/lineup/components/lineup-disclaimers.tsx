@@ -16,6 +16,9 @@ export const LineupDisclaimers = () => {
       <p className="text-sm text-white font-bold">
         * si algo cambia en el evento, no se actualiza
       </p>
+      <p className="text-sm text-white font-bold">
+        * descargá la app para usarla sin internet
+      </p>
     </div>
   );
 };
