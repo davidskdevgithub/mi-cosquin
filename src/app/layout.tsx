@@ -4,14 +4,18 @@ import { ServiceWorkerRegistrar } from "@/features/pwa";
 import { ConvexClientProvider } from "@/providers/ConvexClientProvider";
 
 export const metadata: Metadata = {
-  title: "Grilla Cosquin Rock",
+  title: "Mi Cosquin",
   description:
     "Una grilla interactiva para el Cosquin Rock, agregar favoritos y compartir con amigos",
   manifest: "/manifest.json",
+  icons: {
+    icon: "/icons/icon-192x192.png",
+    apple: "/icons/icon-192x192.png",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Cosquin Rock",
+    title: "Mi Cosquin",
   },
 };
 
