@@ -19,15 +19,15 @@
   --color-info: #0891b2;
 
   /* ── Stage Identity ──────────────────────────────────────── */
-  --color-stage-sur: #5b6abf;
-  --color-stage-norte: #d4793a;
-  --color-stage-boomerang: #c94277;
-  --color-stage-montana: #2d8a5e;
-  --color-stage-paraguay: #8b5dc8;
+  --color-stage-sur: #156372;
+  --color-stage-norte: #dd5227;
+  --color-stage-boomerang: #a571cf;
+  --color-stage-montana: #38754a;
+  --color-stage-paraguay: #a571cf;
   --color-stage-hangarclub: #d45a6e;
-  --color-stage-casitablues: #4a6fa5;
-  --color-stage-laplaza: #3aa5a0;
-  --color-stage-sorpresa: #b8a035;
+  --color-stage-casitablues: #193e85;
+  --color-stage-laplaza: #3d15b8;
+  --color-stage-sorpresa: #cc8903;
 
   /* ── User State ─────────────────────────────────────────── */
   --color-favorite: #e8b931;

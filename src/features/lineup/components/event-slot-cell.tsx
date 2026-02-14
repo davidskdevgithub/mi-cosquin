@@ -62,7 +62,7 @@ export const EventSlotCell = ({
     >
       <div
         className={cn(
-          "flex flex-col gap-0.5 rounded-base p-2 h-full text-white transition-colors",
+          "flex flex-col gap-0.5 rounded-base p-2 h-full text-white transition-colors border border-neutral-700",
           isFavorite ? "bg-favorite" : stageColor,
         )}
       >

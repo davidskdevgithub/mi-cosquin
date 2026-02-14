@@ -163,11 +163,14 @@ export default function Home() {
         onSetActiveRoom={handleSetActiveRoom}
         onClearActiveRoom={handleClearActiveRoom}
       >
-        <div className="min-h-screen bg-neutral-900 text-neutral-100">
-          <Header joinCode={joinCode} />
+        <div
+          className="min-h-screen bg-neutral-900 text-neutral-100 bg-cover bg-right"
+          style={{ backgroundImage: "url('/background.jpeg')" }}
+        >
+          {/* <Header joinCode={joinCode} /> */}
           <main className="p-2 flex flex-col gap-2">
             {/* Panel de salas colapsable */}
-            {showRooms && identity && (
+            {/* {showRooms && identity && (
               <div className="bg-neutral-800/50 border border-neutral-700 rounded-base p-4">
                 <RoomsPanel
                   userId={identity.userId}
@@ -175,7 +178,7 @@ export default function Home() {
                 />
               </div>
             )}
-            <ActiveRoomBanner />
+            <ActiveRoomBanner /> */}
             <LineupPage />
           </main>
         </div>

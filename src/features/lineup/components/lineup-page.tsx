@@ -15,7 +15,7 @@ export const LineupPage = () => {
   const [activeDay, setActiveDay] = useState<DayId>("day1");
 
   return (
-    <div className="flex flex-col h-full gap-3">
+    <div className="flex flex-col h-full gap-8">
       <DayTabs activeDay={activeDay} onDayChange={setActiveDay} />
       <LineupContainer events={EVENTS_BY_DAY[activeDay]} />
     </div>
