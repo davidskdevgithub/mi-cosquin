@@ -23,7 +23,7 @@ export const switchTrackStyles = cva(
 
 export const switchThumbStyles = cva(
   [
-    "pointer-events-none block rounded-full bg-white shadow-lg ring-0 transition-transform",
+    "pointer-events-none block rounded-full bg-white ring-0 transition-transform",
     "translate-x-0",
   ],
   {

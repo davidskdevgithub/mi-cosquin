@@ -1,18 +1,28 @@
+import { ListFilter } from "lucide-react";
 import { Text } from "@/ui";
 import { ROW_HEIGHT } from "../lineup.config";
 import type { Scenario } from "../lineup.types";
 
 interface ScenarioSidebarProps {
   scenarios: Scenario[];
+  onFilterClick?: () => void;
 }
 
-export const ScenarioSidebar = ({ scenarios }: ScenarioSidebarProps) => {
+export const ScenarioSidebar = ({
+  scenarios,
+  onFilterClick,
+}: ScenarioSidebarProps) => {
   return (
     <div className="flex-none w-24 border-r-2 border-primary/40">
-      {/* Header vacío - el botón de scroll está ahora en el LineupContainer */}
-      <div
-        className={`${ROW_HEIGHT} w-full bg-neutral-800 border-b border-neutral-700`}
-      />
+      {/* Header con botón de filtro */}
+      <button
+        type="button"
+        onClick={onFilterClick}
+        className={`${ROW_HEIGHT} w-full flex items-center justify-center bg-neutral-800 border-b border-neutral-700 cursor-pointer hover:bg-neutral-700 transition-colors`}
+        title="Filtrar escenarios"
+      >
+        <ListFilter className="w-4 h-4 text-neutral-400" />
+      </button>
 
       {/* Nombres de escenarios */}
       {scenarios.map((scenario) => (

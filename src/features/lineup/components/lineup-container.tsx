@@ -4,6 +4,8 @@ import { ClockArrowUp } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useFavorites } from "@/features/favorites";
 import { useActiveRoom } from "@/features/rooms/active-room.context";
+import { Switch } from "@/ui";
+import { Sheet } from "@/ui/sheet";
 import { START_TIME, TOTAL_COLUMNS, TOTAL_MINUTES } from "../lineup.config";
 import { SCENARIOS, TIME_SLOTS } from "../lineup.data";
 import { getCurrentArgentinaTime, timeToMinutes } from "../lineup.helpers";
@@ -25,14 +27,34 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
   const [isAtCurrentTime, setIsAtCurrentTime] = useState(true);
   const [isLineAtRight, setIsLineAtRight] = useState(false);
   const [isWithinRange, setIsWithinRange] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
+  const [enabledScenarios, setEnabledScenarios] = useState<Set<string>>(
+    () => new Set(SCENARIOS.map((s) => s.id)),
+  );
+
+  const toggleScenario = useCallback((scenarioId: string) => {
+    setEnabledScenarios((prev) => {
+      const next = new Set(prev);
+      if (next.has(scenarioId)) {
+        next.delete(scenarioId);
+      } else {
+        next.add(scenarioId);
+      }
+      return next;
+    });
+  }, []);
 
   const activeScenarios = useMemo(
     () =>
       SCENARIOS.filter((scenario) => {
         const scenarioEvents = events[scenario.id];
-        return scenarioEvents !== undefined && scenarioEvents.length > 0;
+        return (
+          scenarioEvents !== undefined &&
+          scenarioEvents.length > 0 &&
+          enabledScenarios.has(scenario.id)
+        );
       }),
-    [events],
+    [events, enabledScenarios],
   );
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -106,7 +128,10 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
 
       <div className="flex flex-1 overflow-x-hidden">
         {/* Columna fija de escenarios */}
-        <ScenarioSidebar scenarios={activeScenarios} />
+        <ScenarioSidebar
+          scenarios={activeScenarios}
+          onFilterClick={() => setShowFilter(true)}
+        />
 
         {/* Área desplazable con la grilla */}
         <div
@@ -149,6 +174,39 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
           </div>
         </div>
       </div>
+
+      {/* Sheet de filtros */}
+      <Sheet
+        open={showFilter}
+        onClose={() => setShowFilter(false)}
+        side="bottom"
+      >
+        <div className="flex flex-col gap-4">
+          <h2 className="text-lg font-semibold text-neutral-100">
+            Filtrar escenarios
+          </h2>
+          <p className="text-neutral-400 text-sm">
+            Seleccioná los escenarios que querés ver
+          </p>
+
+          <div className="flex flex-col gap-2">
+            {SCENARIOS.map((scenario) => (
+              <div
+                key={scenario.id}
+                className="flex items-center justify-between py-2 border-b border-neutral-700"
+              >
+                <span className="text-neutral-100 capitalize">
+                  {scenario.name}
+                </span>
+                <Switch
+                  checked={enabledScenarios.has(scenario.id)}
+                  onChange={() => toggleScenario(scenario.id)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </Sheet>
     </div>
   );
 };
