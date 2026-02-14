@@ -13,6 +13,7 @@ import type { Event, EventsType } from "../lineup.types";
 import { CurrentTimeIndicator } from "./current-time-indicator";
 import { EventSlotCell } from "./event-slot-cell";
 import { EventsGrid } from "./events-grid";
+import { LineupDisclaimers } from "./lineup-disclaimers";
 import { ScenarioSidebar } from "./scenario-sidebar";
 import { TimeSlotCell } from "./time-slot-cell";
 
@@ -174,6 +175,8 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
           </div>
         </div>
       </div>
+
+      <LineupDisclaimers />
 
       {/* Sheet de filtros */}
       <Sheet
