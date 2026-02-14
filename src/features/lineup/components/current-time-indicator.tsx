@@ -1,10 +1,17 @@
 "use client";
 
+import { Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { START_TIME, TOTAL_MINUTES } from "../lineup.config";
 import { getCurrentArgentinaTime, timeToMinutes } from "../lineup.helpers";
 
-export const CurrentTimeIndicator = () => {
+interface CurrentTimeIndicatorProps {
+  onClick?: () => void;
+}
+
+export const CurrentTimeIndicator = ({
+  onClick,
+}: CurrentTimeIndicatorProps) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -27,14 +34,13 @@ export const CurrentTimeIndicator = () => {
   if (position < 0 || position > 100) return null;
 
   return (
-    <div
-      className="absolute top-0 bottom-0 w-0.5 bg-primary z-10 pointer-events-none"
-      style={{ left: `${position}%` }}
-    >
-      {/* Indicador con la hora actual */}
-      <div className="absolute -top-5 -translate-x-1/2 bg-primary text-white text-xs font-bold px-1.5 py-0.5 rounded-sm whitespace-nowrap">
-        {currentTime}
+    <div className="absolute top-0 bottom-0" style={{ left: `${position}%` }}>
+      {/* Reloj pegado a la línea - sobresale arriba - clickeable */}
+      <div className="bg-warning rounded-full p-1 absolute top-0 left-0 -translate-x-1/2 z-20">
+        <Clock className="w-4 h-4" />
       </div>
+      {/* Línea vertical */}
+      <div className="w-0.5 h-full bg-warning z-10" />
     </div>
   );
 };
