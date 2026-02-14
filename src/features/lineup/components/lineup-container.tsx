@@ -14,9 +14,9 @@ import { CurrentTimeIndicator } from "./current-time-indicator";
 import { EventSlotCell } from "./event-slot-cell";
 import { EventsGrid } from "./events-grid";
 import { LineupDisclaimers } from "./lineup-disclaimers";
+import { LineUpFooter } from "./lineup-footer";
 import { ScenarioSidebar } from "./scenario-sidebar";
 import { TimeSlotCell } from "./time-slot-cell";
-import { LineUpFooter } from "./lineup-footer";
 
 interface LineupContainerProps {
   events: EventsType;
@@ -30,9 +30,27 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
   const [isLineAtRight, setIsLineAtRight] = useState(false);
   const [isWithinRange, setIsWithinRange] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
-  const [enabledScenarios, setEnabledScenarios] = useState<Set<string>>(
-    () => new Set(SCENARIOS.map((s) => s.id)),
-  );
+  const [enabledScenarios, setEnabledScenarios] = useState<Set<string>>(() => {
+    if (typeof window === "undefined")
+      return new Set(SCENARIOS.map((s) => s.id));
+    const stored = localStorage.getItem("enabledScenarios");
+    if (stored) {
+      try {
+        return new Set(JSON.parse(stored));
+      } catch {
+        return new Set(SCENARIOS.map((s) => s.id));
+      }
+    }
+    return new Set(SCENARIOS.map((s) => s.id));
+  });
+
+  // Persistir a localStorage cuando cambia
+  useEffect(() => {
+    localStorage.setItem(
+      "enabledScenarios",
+      JSON.stringify([...enabledScenarios]),
+    );
+  }, [enabledScenarios]);
 
   const toggleScenario = useCallback((scenarioId: string) => {
     setEnabledScenarios((prev) => {
