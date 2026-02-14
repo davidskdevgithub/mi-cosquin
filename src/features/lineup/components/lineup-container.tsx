@@ -1,7 +1,7 @@
 "use client";
 
 import { ClockArrowUp } from "lucide-react";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useFavorites } from "@/features/favorites";
 import { useActiveRoom } from "@/features/rooms/active-room.context";
 import { START_TIME, TOTAL_COLUMNS, TOTAL_MINUTES } from "../lineup.config";
@@ -24,6 +24,7 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
 
   const [isAtCurrentTime, setIsAtCurrentTime] = useState(true);
   const [isLineAtRight, setIsLineAtRight] = useState(false);
+  const [isWithinRange, setIsWithinRange] = useState(false);
 
   const activeScenarios = useMemo(
     () =>
@@ -56,6 +57,16 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
 
     const currentMinutes =
       timeToMinutes(getCurrentArgentinaTime()) - START_TIME;
+
+    // Verificar si la hora actual está dentro del rango de la grilla
+    const withinRange = currentMinutes >= 0 && currentMinutes <= TOTAL_MINUTES;
+    setIsWithinRange(withinRange);
+
+    if (!withinRange) {
+      setIsAtCurrentTime(false);
+      return;
+    }
+
     const position = (currentMinutes / TOTAL_MINUTES) * 100;
     const positionPx = (position / 100) * container.scrollWidth;
 
@@ -72,14 +83,21 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
     setIsLineAtRight(isAtRight);
   }, []);
 
+  // Calcular estado inicial al montar
+  useEffect(() => {
+    handleScroll();
+  }, [handleScroll]);
+
   return (
     <div className="flex flex-col h-full relative">
-      {/* Botón flotante: visible cuando NO estamos en la hora actual */}
+      {/* Botón flotante: visible cuando NO estamos en la hora actual Y dentro del rango */}
       <button
         type="button"
         onClick={scrollToCurrentTime}
         className={`absolute top-0 z-30 bg-warning rounded-full p-1 w-fit transition-all ${
-          isAtCurrentTime ? "opacity-0 pointer-events-none" : "opacity-100"
+          !isWithinRange || isAtCurrentTime
+            ? "opacity-0 pointer-events-none"
+            : "opacity-100"
         } ${isLineAtRight ? "right-2" : "left-26"}`}
         title="Ir a la hora actual"
       >
@@ -98,7 +116,7 @@ export const LineupContainer = ({ events }: LineupContainerProps) => {
         >
           <div className="inline-block min-w-full relative">
             {/* Indicador de hora actual */}
-            <CurrentTimeIndicator onClick={scrollToCurrentTime} />
+            <CurrentTimeIndicator />
 
             {/* Fila de horarios */}
             <EventsGrid columns={TOTAL_COLUMNS}>

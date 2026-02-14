@@ -5,13 +5,11 @@ import { useEffect, useState } from "react";
 import { START_TIME, TOTAL_MINUTES } from "../lineup.config";
 import { getCurrentArgentinaTime, timeToMinutes } from "../lineup.helpers";
 
-interface CurrentTimeIndicatorProps {
-  onClick?: () => void;
-}
+// interface CurrentTimeIndicatorProps {
+//   onClick?: () => void;
+// }
 
-export const CurrentTimeIndicator = ({
-  onClick,
-}: CurrentTimeIndicatorProps) => {
+export const CurrentTimeIndicator = () => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
